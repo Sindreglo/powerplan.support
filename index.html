@@ -1,510 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PowerPlan - Privacy & Support</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        :root {
-            /* Primary Colors */
-            --dark-background: rgb(15, 23, 42);
-            --dark-border: rgb(30, 41, 59);
-            --purple-accent: rgb(30, 27, 75);
-            
-            /* Success/Action Colors */
-            --success-green: rgb(52, 211, 153);
-            --indigo-accent: rgb(99, 102, 241);
-            --star-yellow: rgb(251, 191, 36);
-            
-            /* Text Colors */
-            --text-primary: rgb(15, 23, 42);
-            --text-secondary: rgb(100, 116, 139);
-            --text-tertiary: rgb(51, 65, 85);
-            --text-muted: rgb(148, 163, 184);
-            --tag-text: rgb(71, 85, 105);
-            --light-purple-text: rgb(199, 210, 254);
-            
-            /* Background Colors */
-            --app-background: rgb(241, 245, 249);
-            --secondary-background: rgb(242, 242, 247);
-            --card-background: rgb(248, 250, 252);
-            --tag-background: rgb(241, 245, 249);
-            
-            /* Border Colors */
-            --border-primary: rgb(226, 232, 240);
-            --border-completed: rgb(203, 213, 225);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--app-background);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: var(--dark-background);
-            padding: 16px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--dark-border);
-        }
-        
+      :root {
+        /* Primary Colors */
+        --dark-background: rgb(15, 23, 42);
+        --dark-border: rgb(30, 41, 59);
+        --purple-accent: rgb(30, 27, 75);
+
+        /* Success/Action Colors */
+        --success-green: rgb(52, 211, 153);
+        --indigo-accent: rgb(99, 102, 241);
+        --star-yellow: rgb(251, 191, 36);
+
+        /* Text Colors */
+        --text-primary: rgb(15, 23, 42);
+        --text-secondary: rgb(100, 116, 139);
+        --text-tertiary: rgb(51, 65, 85);
+        --text-muted: rgb(148, 163, 184);
+
+        /* Background Colors */
+        --app-background: rgb(241, 245, 249);
+        --card-background: rgb(248, 250, 252);
+
+        /* Border Colors */
+        --border-primary: rgb(226, 232, 240);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: var(--app-background);
+        color: var(--text-primary);
+        line-height: 1.6;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: var(--dark-background);
+        padding: 16px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--dark-border);
+      }
+
+      .header-content {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--purple-accent);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Justerer fargen på Lucide ikonet inni logoen */
+      .logo-icon svg {
+        stroke: white; /* Sikrer at logo-ikonet er hvitt */
+      }
+
+      nav {
+        display: flex;
+        gap: 24px;
+      }
+
+      nav a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        color: white;
+      }
+
+      /* Main Content */
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+      section {
+        margin-bottom: 60px;
+        scroll-margin-top: 80px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .section-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--purple-accent);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      /* VIKTIG: Lucide erstatter <i> tags med <svg>. 
+           Her sier vi at svg inni section-icon skal være hvit */
+      .section-icon svg {
+        stroke: white;
+        width: 20px;
+        height: 20px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+      .section-description {
+        font-size: 15px;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+      }
+
+      /* Card Styles */
+      .card {
+        background-color: var(--card-background);
+        border: 1px solid var(--border-primary);
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      .card-icon {
+        color: var(--purple-accent);
+        display: flex; /* Sentrerer ikonet */
+        align-items: center;
+      }
+
+      .card-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .card-description {
+        font-size: 14px;
+        color: var(--text-secondary);
+        padding-left: 34px;
+      }
+
+      /* Support Section */
+      .support-option {
+        background-color: var(--card-background);
+        border: 1px solid var(--border-primary);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .support-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--purple-accent);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        flex-shrink: 0;
+      }
+
+      .support-icon svg {
+        stroke: white;
+        width: 24px;
+        height: 24px;
+      }
+
+      .support-content h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+      }
+      .support-content p {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+      }
+
+      .support-link {
+        display: inline-block;
+        color: var(--indigo-accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .support-link:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        background-color: var(--dark-background);
+        padding: 24px 20px;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 14px;
+        border-top: 1px solid var(--dark-border);
+      }
+
+      @media (max-width: 600px) {
         .header-content {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+          flex-direction: column;
+          gap: 16px;
         }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
-            font-size: 20px;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--purple-accent);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
         nav {
-            display: flex;
-            gap: 24px;
+          gap: 16px;
         }
-        
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        
-        nav a:hover {
-            color: white;
-        }
-        
-        /* Main Content */
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        /* Section Styles */
-        section {
-            margin-bottom: 60px;
-            scroll-margin-top: 80px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        
-        .section-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--purple-accent);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-        }
-        
-        .section-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        
-        .section-description {
-            font-size: 15px;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-        }
-        
-        /* Card Styles */
-        .card {
-            background-color: var(--card-background);
-            border: 1px solid var(--border-primary);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 16px;
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-        
-        .card-icon {
-            color: var(--purple-accent);
-            font-size: 18px;
-            width: 24px;
-            text-align: center;
-        }
-        
-        .card-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .card-description {
-            font-size: 14px;
-            color: var(--text-secondary);
-            padding-left: 34px;
-        }
-        
-        /* Support Section */
-        .support-option {
-            background-color: var(--card-background);
-            border: 1px solid var(--border-primary);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-        
-        .support-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--purple-accent);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-        
-        .support-content h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-        
-        .support-content p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-        }
-        
-        .support-link {
-            display: inline-block;
-            color: var(--indigo-accent);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .support-link:hover {
-            text-decoration: underline;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-background);
-            padding: 24px 20px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 14px;
-            border-top: 1px solid var(--dark-border);
-        }
-        
-        /* Responsive */
-        @media (max-width: 600px) {
-            .header-content {
-                flex-direction: column;
-                gap: 16px;
-            }
-            
-            nav {
-                gap: 16px;
-            }
-            
-            .section-title {
-                font-size: 20px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="header-content">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                    </svg>
-                </div>
-                PowerPlan
-            </a>
-            <nav>
-                <a href="#privacy">Privacy</a>
-                <a href="#terms">Terms & Liability</a>
-                <a href="#support">Support</a>
-            </nav>
-        </div>
+      <div class="header-content">
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <i data-lucide="zap"></i>
+          </div>
+          PowerPlan
+        </a>
+        <nav>
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms & Liability</a>
+          <a href="#support">Support</a>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <!-- Privacy Section -->
-        <section id="privacy">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                    </svg>
-                </div>
-                <h1 class="section-title">Privacy & Security</h1>
-            </div>
-            <p class="section-description">Your privacy is our priority. Learn how we protect your data.</p>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                            <line x1="12" y1="18" x2="12.01" y2="18"/>
-                        </svg>
-                    </span>
-                    <h3 class="card-title">Local data storage</h3>
-                </div>
-                <p class="card-description">All training data is stored locally on your device. We do not collect or share your training data with third parties.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-                        </svg>
-                    </span>
-                    <h3 class="card-title">iCloud synchronization</h3>
-                </div>
-                <p class="card-description">If you have iCloud enabled, your data is securely synchronized across your Apple devices using end-to-end encryption.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                        </svg>
-                    </span>
-                    <h3 class="card-title">Data security</h3>
-                </div>
-                <p class="card-description">We use industry-standard security measures to protect your data. All communication with our servers is encrypted with TLS.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                            <line x1="4" y1="4" x2="20" y2="20"/>
-                        </svg>
-                    </span>
-                    <h3 class="card-title">No tracking</h3>
-                </div>
-                <p class="card-description">PowerPlan does not use tracking cookies or analytics tools that collect personal data. Your privacy is our priority.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="3 6 5 6 21 6"/>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                        </svg>
-                    </span>
-                    <h3 class="card-title">Data deletion</h3>
-                </div>
-                <p class="card-description">You can delete all your training data at any time by uninstalling the app. Data is permanently removed from your device.</p>
-            </div>
-        </section>
+      <section id="privacy">
+        <div class="section-header">
+          <div class="section-icon">
+            <i data-lucide="shield"></i>
+          </div>
+          <h1 class="section-title">Privacy & Security</h1>
+        </div>
+        <p class="section-description">
+          Your privacy is our priority. Learn how we protect your data.
+        </p>
 
-        <!-- Terms & Liability Section -->
-        <section id="terms">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <path d="M12 8v4"/>
-                        <path d="M12 16h.01"/>
-                    </svg>
-                </div>
-                <h1 class="section-title">Terms & Liability</h1>
-            </div>
-            <p class="section-description">Please read the following information carefully before using PowerPlan.</p>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                        </svg>
-                    </span>
-                    <h3 class="card-title">Consult a Physician</h3>
-                </div>
-                <p class="card-description">Before beginning any exercise program, consult with your physician or healthcare provider. This is especially important if you have any pre-existing medical conditions, injuries, or health concerns.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                            <line x1="9" y1="9" x2="9.01" y2="9"/>
-                            <line x1="15" y1="9" x2="15.01" y2="9"/>
-                        </svg>
-                    </span>
-                    <h3 class="card-title">Assumption of Risk</h3>
-                </div>
-                <p class="card-description">You acknowledge that physical exercise carries inherent risks, including but not limited to muscle strains, sprains, fractures, and other injuries. By using this app, you voluntarily assume all risks associated with physical exercise.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                            <line x1="12" y1="2" x2="12" y2="6"/>
-                        </svg>
-                    </span>
-                    <h3 class="card-title">No Liability</h3>
-                </div>
-                <p class="card-description">PowerPlan, its developers, and affiliates shall not be held liable for any injuries, damages, or adverse health effects resulting from the use of workout plans or information provided in this app.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <polyline points="9 12 11 14 15 10"/>
-                        </svg>
-                    </span>
-                    <h3 class="card-title">Proper Form & Safety</h3>
-                </div>
-                <p class="card-description">Always prioritize proper form and technique when performing exercises. If you experience any pain, discomfort, or unusual symptoms during exercise, stop immediately and consult a healthcare professional.</p>
-            </div>
-        </section>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="hard-drive" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">Local data storage</h3>
+          </div>
+          <p class="card-description">
+            All training data is stored locally on your device. We do not
+            collect or share your training data with third parties.
+          </p>
+        </div>
 
-        <!-- Support Section -->
-        <section id="support">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                        <line x1="12" y1="17" x2="12.01" y2="17"/>
-                    </svg>
-                </div>
-                <h1 class="section-title">Support</h1>
-            </div>
-            <p class="section-description">Need help? We're here to assist you with any questions or issues.</p>
-            
-            <div class="support-option">
-                <div class="support-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                </div>
-                <div class="support-content">
-                    <h3>Email Support</h3>
-                    <p>For general inquiries, feature requests, or any questions about PowerPlan, reach out to us via email.</p>
-                    <a href="mailto:support@powerplan.app" class="support-link">support@powerplan.app</a>
-                </div>
-            </div>
-            
-            <div class="support-option">
-                <div class="support-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="4"/>
-                        <line x1="1.05" y1="12" x2="7" y2="12"/>
-                        <line x1="17.01" y1="12" x2="22.96" y2="12"/>
-                        <line x1="12" y1="1.05" x2="12" y2="7"/>
-                        <line x1="12" y1="17.01" x2="12" y2="22.96"/>
-                    </svg>
-                </div>
-                <div class="support-content">
-                    <h3>Bug Reports</h3>
-                    <p>Found a bug or experiencing technical issues? Please include your device model, iOS version, and steps to reproduce the issue.</p>
-                    <a href="mailto:bugs@powerplan.app" class="support-link">bugs@powerplan.app</a>
-                </div>
-            </div>
-            
-            <div class="support-option">
-                <div class="support-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                    </svg>
-                </div>
-                <div class="support-content">
-                    <h3>Feedback</h3>
-                    <p>We love hearing from our users! Share your thoughts, suggestions, or ideas on how we can improve PowerPlan.</p>
-                    <a href="mailto:feedback@powerplan.app" class="support-link">feedback@powerplan.app</a>
-                </div>
-            </div>
-        </section>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="cloud" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">iCloud synchronization</h3>
+          </div>
+          <p class="card-description">
+            If you have iCloud enabled, your data is securely synchronized
+            across your Apple devices using end-to-end encryption.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="lock" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">Data security</h3>
+          </div>
+          <p class="card-description">
+            We use industry-standard security measures to protect your data. All
+            communication with our servers is encrypted with TLS.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="eye-off" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">No tracking</h3>
+          </div>
+          <p class="card-description">
+            PowerPlan does not use tracking cookies or analytics tools that
+            collect personal data. Your privacy is our priority.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="trash-2" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">Data deletion</h3>
+          </div>
+          <p class="card-description">
+            You can delete all your training data at any time by uninstalling
+            the app. Data is permanently removed from your device.
+          </p>
+        </div>
+      </section>
+
+      <section id="terms">
+        <div class="section-header">
+          <div class="section-icon">
+            <i data-lucide="file-text"></i>
+          </div>
+          <h1 class="section-title">Terms & Liability</h1>
+        </div>
+        <p class="section-description">
+          Please read the following information carefully before using
+          PowerPlan.
+        </p>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="stethoscope" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">Consult a Physician</h3>
+          </div>
+          <p class="card-description">
+            Before beginning any exercise program, consult with your physician
+            or healthcare provider. This is especially important if you have any
+            pre-existing medical conditions.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="alert-triangle" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">Assumption of Risk</h3>
+          </div>
+          <p class="card-description">
+            You acknowledge that physical exercise carries inherent risks,
+            including but not limited to muscle strains and injuries. You
+            voluntarily assume all risks.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="shield-alert" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">No Liability</h3>
+          </div>
+          <p class="card-description">
+            PowerPlan, its developers, and affiliates shall not be held liable
+            for any injuries, damages, or adverse health effects resulting from
+            the use of workout plans.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="check-circle" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">Proper Form & Safety</h3>
+          </div>
+          <p class="card-description">
+            Always prioritize proper form and technique. If you experience any
+            pain or discomfort, stop immediately and consult a professional.
+          </p>
+        </div>
+      </section>
+
+      <section id="support">
+        <div class="section-header">
+          <div class="section-icon">
+            <i data-lucide="life-buoy"></i>
+          </div>
+          <h1 class="section-title">Support</h1>
+        </div>
+        <p class="section-description">
+          Need help? We're here to assist you with any questions or issues.
+        </p>
+
+        <div class="support-option">
+          <div class="support-icon">
+            <i data-lucide="mail"></i>
+          </div>
+          <div class="support-content">
+            <h3>Email Support</h3>
+            <p>
+              For general inquiries, feature requests, or any questions about
+              PowerPlan, reach out to us via email.
+            </p>
+            <a href="mailto:support@powerplan.app" class="support-link"
+              >support@powerplan.app</a
+            >
+          </div>
+        </div>
+
+        <div class="support-option">
+          <div class="support-icon">
+            <i data-lucide="bug"></i>
+          </div>
+          <div class="support-content">
+            <h3>Bug Reports</h3>
+            <p>
+              Found a bug or experiencing technical issues? Please include your
+              device model, iOS version, and steps to reproduce the issue.
+            </p>
+            <a href="mailto:bugs@powerplan.app" class="support-link"
+              >bugs@powerplan.app</a
+            >
+          </div>
+        </div>
+
+        <div class="support-option">
+          <div class="support-icon">
+            <i data-lucide="message-square"></i>
+          </div>
+          <div class="support-content">
+            <h3>Feedback</h3>
+            <p>
+              We love hearing from our users! Share your thoughts, suggestions,
+              or ideas on how we can improve PowerPlan.
+            </p>
+            <a href="mailto:feedback@powerplan.app" class="support-link"
+              >feedback@powerplan.app</a
+            >
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 PowerPlan. All rights reserved.</p>
+      <p>&copy; 2024 PowerPlan. All rights reserved.</p>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+      lucide.createIcons();
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
+          }
         });
+      });
     </script>
-</body>
+  </body>
 </html>
