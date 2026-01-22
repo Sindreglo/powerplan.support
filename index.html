@@ -100,7 +100,6 @@
         padding: 40px 20px;
       }
 
-      /* Standard scroll margin for desktop */
       section {
         margin-bottom: 60px;
         scroll-margin-top: 80px;
@@ -135,6 +134,7 @@
         font-weight: 700;
         color: var(--text-primary);
       }
+
       .section-description {
         font-size: 15px;
         color: var(--text-secondary);
@@ -168,6 +168,7 @@
         font-weight: 600;
         color: var(--text-primary);
       }
+
       .card-description {
         font-size: 14px;
         color: var(--text-secondary);
@@ -210,6 +211,7 @@
         color: var(--text-primary);
         margin-bottom: 4px;
       }
+
       .support-content p {
         font-size: 14px;
         color: var(--text-secondary);
@@ -223,6 +225,7 @@
         font-size: 14px;
         font-weight: 500;
       }
+
       .support-link:hover {
         text-decoration: underline;
       }
@@ -236,7 +239,6 @@
         border-top: 1px solid var(--dark-border);
       }
 
-      /* MOBILE RESPONSIVE FIXES */
       @media (max-width: 600px) {
         .header-content {
           flex-direction: column;
@@ -245,10 +247,6 @@
         nav {
           gap: 16px;
         }
-
-        /* ØKER SCROLL-MARGIN FOR MOBIL */
-        /* Siden headeren er høyere på mobil (logo + nav stablet), 
-           må vi scrolle litt lenger ned for at tittelen skal synes */
         section {
           scroll-margin-top: 140px;
         }
@@ -276,7 +274,8 @@
           <h1 class="section-title">Privacy & Security</h1>
         </div>
         <p class="section-description">
-          Your privacy is our priority. Learn how we protect your data.
+          Your privacy is our priority. Learn how we handle your data in Version
+          1.1.
         </p>
 
         <div class="card">
@@ -284,11 +283,40 @@
             <span class="card-icon">
               <i data-lucide="hard-drive" width="18" height="18"></i>
             </span>
-            <h3 class="card-title">Local data storage</h3>
+            <h3 class="card-title">Local Data Storage</h3>
           </div>
           <p class="card-description">
-            All training data is stored locally on your device. We do not
-            collect or share your training data with third parties.
+            Your workout logs and personal progress are stored locally on your
+            device. We do not collect or share your individual training data
+            with third parties.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="activity" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">HealthKit Integration</h3>
+          </div>
+          <p class="card-description">
+            Titan accesses your step count data locally from Apple Health. This
+            data is used only to visualize your daily activity within the app
+            and is never transmitted off your device.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">
+              <i data-lucide="bar-chart-3" width="18" height="18"></i>
+            </span>
+            <h3 class="card-title">Anonymous Analytics</h3>
+          </div>
+          <p class="card-description">
+            We use anonymized usage patterns (like popular training plans) to
+            improve the app experience. No personally identifiable information
+            or health data is ever collected.
           </p>
         </div>
 
@@ -297,37 +325,12 @@
             <span class="card-icon">
               <i data-lucide="cloud" width="18" height="18"></i>
             </span>
-            <h3 class="card-title">iCloud synchronization</h3>
+            <h3 class="card-title">iCloud Synchronization</h3>
           </div>
           <p class="card-description">
-            If you have iCloud enabled, your data is securely synchronized
-            across your Apple devices using end-to-end encryption.
-          </p>
-        </div>
-
-        <!--<div class="card">
-          <div class="card-header">
-            <span class="card-icon">
-              <i data-lucide="lock" width="18" height="18"></i>
-            </span>
-            <h3 class="card-title">Data security</h3>
-          </div>
-          <p class="card-description">
-            We use industry-standard security measures to protect your data. All
-            communication with our servers is encrypted with TLS.
-          </p>
-        </div>-->
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-icon">
-              <i data-lucide="eye-off" width="18" height="18"></i>
-            </span>
-            <h3 class="card-title">No tracking</h3>
-          </div>
-          <p class="card-description">
-            Titan does not use tracking cookies or analytics tools that collect
-            personal data. Your privacy is our priority.
+            If enabled, your data is securely synchronized across your Apple
+            devices using Apple's end-to-end encryption through your personal
+            iCloud storage.
           </p>
         </div>
 
@@ -336,11 +339,12 @@
             <span class="card-icon">
               <i data-lucide="trash-2" width="18" height="18"></i>
             </span>
-            <h3 class="card-title">Data deletion</h3>
+            <h3 class="card-title">Data Deletion</h3>
           </div>
           <p class="card-description">
-            You can delete all your training data at any time by uninstalling
-            the app. Data is permanently removed from your device.
+            You can delete all your data at any time by uninstalling the app.
+            Since Titan does not use cloud accounts, your data is permanently
+            removed upon uninstallation.
           </p>
         </div>
       </section>
@@ -393,8 +397,8 @@
           </div>
           <p class="card-description">
             Titan, its developers, and affiliates shall not be held liable for
-            any injuries, damages, or adverse health effects resulting from the
-            use of workout plans.
+            any injuries or adverse health effects resulting from the use of
+            workout plans or activity tracking.
           </p>
         </div>
 
@@ -420,7 +424,8 @@
           <h1 class="section-title">Support</h1>
         </div>
         <p class="section-description">
-          Need help? We're here to assist you with any questions or issues.
+          Need help? We're here to assist you with any questions or technical
+          issues.
         </p>
 
         <div class="support-option">
@@ -446,6 +451,7 @@
     </footer>
 
     <script>
+      // Initialize Lucide icons
       lucide.createIcons();
 
       // Smooth scrolling for navigation links
